@@ -43,3 +43,6 @@ gem 'unicorn'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem 'authlogic'
+gem 'easy_roles'
