@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140114041442) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "branches", force: true do |t|
     t.string   "name"
     t.integer  "company_id"
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140114041442) do
     t.datetime "updated_at"
   end
 
-  add_index "branches", ["company_id"], name: "index_branches_on_company_id"
+  add_index "branches", ["company_id"], name: "index_branches_on_company_id", using: :btree
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -35,7 +38,7 @@ ActiveRecord::Schema.define(version: 20140114041442) do
     t.datetime "updated_at"
   end
 
-  add_index "computers", ["branch_id"], name: "index_computers_on_branch_id"
+  add_index "computers", ["branch_id"], name: "index_computers_on_branch_id", using: :btree
 
   create_table "promotions", force: true do |t|
     t.string   "description"
@@ -44,7 +47,7 @@ ActiveRecord::Schema.define(version: 20140114041442) do
     t.datetime "updated_at"
   end
 
-  add_index "promotions", ["company_id"], name: "index_promotions_on_company_id"
+  add_index "promotions", ["company_id"], name: "index_promotions_on_company_id", using: :btree
 
   create_table "rents", force: true do |t|
     t.string   "name"
@@ -55,7 +58,7 @@ ActiveRecord::Schema.define(version: 20140114041442) do
     t.datetime "updated_at"
   end
 
-  add_index "rents", ["computer_id"], name: "index_rents_on_computer_id"
+  add_index "rents", ["computer_id"], name: "index_rents_on_computer_id", using: :btree
 
   create_table "rules", force: true do |t|
     t.text     "description"
@@ -64,6 +67,6 @@ ActiveRecord::Schema.define(version: 20140114041442) do
     t.datetime "updated_at"
   end
 
-  add_index "rules", ["company_id"], name: "index_rules_on_company_id"
+  add_index "rules", ["company_id"], name: "index_rules_on_company_id", using: :btree
 
 end
