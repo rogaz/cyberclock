@@ -5,7 +5,7 @@ Cyberclock::Application.routes.draw do
   resources :branches
   resources :companies
   resources :computers
-  resources :products
+  resources :promotions
   resources :rents
   resources :rules
 

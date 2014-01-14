@@ -1,0 +1,15 @@
+<%= provide(:title, 'Detalles de promoción') %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @promotion.description %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @promotion.company %>
+</p>
+
+<%= link_to 'Edit', edit_promotion_path(@promotion) %> |
+<%= link_to 'Back', promotions_path %>

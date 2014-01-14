@@ -3,7 +3,6 @@
 <head>
   <title><%= yield(:title) %> | Cyberclock</title>
   <%= stylesheet_link_tag    'application', "#{params[:controller]}", media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', "#{params[:controller]}", 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -23,9 +22,12 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><%= link_to 'Companies', companies_path %></li>
-        <li></span><%= link_to 'Branches', branches_path %></li>
-        <li><a href="#">Link</a></li>
+        <li class="companies-nav-bar"><%= link_to 'Empresas', companies_path %></li>
+        <li class="branches-nav-bar"><%= link_to 'Sucursales', branches_path %></li>
+        <li class="rules-nav-bar"><%= link_to 'Reglas', rules_path %></li>
+        <li class="promotions-nav-bar"><%= link_to 'Promociones', promotions_path %></li>
+        <li class="computers-nav-bar"><%= link_to 'Computadoras', computers_path %></li>
+        <li class="rents-nav-bar"><%= link_to 'Rentas', rents_path %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -61,5 +63,10 @@
 
 </div> <!-- /container -->
 
+<%= javascript_include_tag 'application', "#{params[:controller]}", 'data-turbolinks-track' => true %>
+<script>
+    //Focus link in navbar
+    $(document).ready(function(){ $('.<%= params[:controller] %>-nav-bar').addClass('active'); });
+</script>
 </body>
 </html>
