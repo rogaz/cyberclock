@@ -3,8 +3,11 @@ Cyberclock::Application.routes.draw do
   root :to => 'companies#index'
 
   resources :branches
-
   resources :companies
+  resources :computers
+  resources :products
+  resources :rents
+  resources :rules
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
