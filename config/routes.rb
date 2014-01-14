@@ -1,4 +1,6 @@
 Cyberclock::Application.routes.draw do
+  resources :computers
+
   resources :rents
 
   resources :rules
