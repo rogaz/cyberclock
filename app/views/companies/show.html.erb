@@ -1,0 +1,18 @@
+<%= provide(:title, 'Detalles de empresa') %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @company.name %>
+</p>
+
+<div class="branches">
+  <h3>Sucursales</h3>
+  <% @company.branches.each do |branch| %>
+    <div><%= branch.name %></div>
+  <% end %>
+</div>
+
+<%= link_to 'Crear sucursal', new_branch_path(:company_id => @company.id) %><br>
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>

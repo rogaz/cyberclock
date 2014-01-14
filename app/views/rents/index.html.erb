@@ -1,0 +1,34 @@
+<%= provide(:title, 'Rentas') %>
+<h1>Listing rents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Duration</th>
+      <th>Rent type</th>
+      <th>Computer</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rents.each do |rent| %>
+      <tr>
+        <td><%= rent.name %></td>
+        <td><%= rent.duration %></td>
+        <td><%= rent.rent_type %></td>
+        <td><%= rent.computer %></td>
+        <td><%= link_to 'Show', rent %></td>
+        <td><%= link_to 'Edit', edit_rent_path(rent) %></td>
+        <td><%= link_to 'Destroy', rent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rent', new_rent_path %>

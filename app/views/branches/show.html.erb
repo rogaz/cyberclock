@@ -1,0 +1,19 @@
+<%= provide(:title, 'Detalles de sucursal') %>
+<p id="notice"><%= notice %></p>
+
+<h3>Sucural de <%= validate_if_nil(@branch, 'company.name') %></h3>
+
+<p>
+  <strong>Name:</strong>
+  <%= @branch.name %>
+</p>
+
+<!--
+<p>
+  <strong>Company:</strong>
+  <= @branch.company_id %>
+</p>
+-->
+
+<%= link_to 'Edit', edit_branch_path(@branch) %> |
+<%= link_to 'Back', branches_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  duration: 2014-01-13 18:38:46
+  rent_type: MyString
+  computer_id: 
+
+two:
+  name: MyString
+  duration: 2014-01-13 18:38:46
+  rent_type: MyString
+  computer_id: 
