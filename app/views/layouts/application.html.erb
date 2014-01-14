@@ -3,6 +3,7 @@
 <head>
   <title><%= yield(:title) %> | Cyberclock</title>
   <%= stylesheet_link_tag    'application', "#{params[:controller]}", media: 'all', 'data-turbolinks-track' => true %>
+  <%= yield :asset_stylesheet %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -64,6 +65,7 @@
 </div> <!-- /container -->
 
 <%= javascript_include_tag 'application', "#{params[:controller]}", 'data-turbolinks-track' => true %>
+<%= yield :asset_javascript %>
 <script>
     //Focus link in navbar
     $(document).ready(function(){ $('.<%= params[:controller] %>-nav-bar').addClass('active'); });

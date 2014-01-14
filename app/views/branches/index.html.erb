@@ -16,7 +16,7 @@
     <% @branches.each do |branch| %>
       <tr>
         <td><%= branch.name %></td>
-        <td><%= branch.company_id %></td>
+        <td><%= validate_if_nil(branch, 'company.name') %></td>
         <td><%= link_to 'Show', branch %></td>
         <td><%= link_to 'Edit', edit_branch_path(branch) %></td>
         <td><%= link_to 'Destroy', branch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
