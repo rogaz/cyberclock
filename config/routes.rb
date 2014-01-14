@@ -1,4 +1,7 @@
 Cyberclock::Application.routes.draw do
+
+  root :to => 'companies#index'
+
   resources :branches
 
   resources :companies
