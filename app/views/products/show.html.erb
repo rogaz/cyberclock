@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= image_tag @product.picture.url(:thumb) %>
+</p>
+
+<p>
+  <strong>Descripción:</strong>
+  <%= @product.description %>
+</p>
+
+<%= link_to 'Editar', edit_product_path(@product) %> |
+<%= link_to 'Regresar', products_path %>

@@ -1,5 +1,7 @@
 Cyberclock::Application.routes.draw do
 
+  resources :products
+
   resources :users
   resource :user_session
 

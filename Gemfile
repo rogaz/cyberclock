@@ -6,6 +6,8 @@ gem 'rails', '4.0.2'
 #Postgresql Data Base
 gem 'pg'
 
+gem 'paperclip'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

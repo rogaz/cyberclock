@@ -1,0 +1,18 @@
+<%= provide(:title, 'Productos') %>
+
+<div id="index-head">
+  <h1 id="title">Productos</h1>
+  <%= link_to '<i class="fa fa-plus"></i> Crear producto'.html_safe, new_product_path, class: 'btn btn-success', id: 'new_product' %>
+</div>
+
+<div class="row">
+<% @products.each do |product| %>
+  <div class="col-lg-3">
+    <img class="img-circle" style="width: 100px; height: 100px;" data-src= <%= image_tag product.picture.url(:thumb) %>
+    <p><%=product.description %></p>
+    <%= link_to '<i class="fa fa-plus"></i> Ver detalles'.html_safe, product %>
+  </div>
+<% end %>
+</div>
+
+
