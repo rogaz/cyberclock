@@ -15,5 +15,13 @@
 </p>
 -->
 
+<div class="computers">
+  <h3>Computadoras</h3>
+  <% @branch.computers.each do |computer| %>
+    <div><%= computer.name %></div>
+  <% end %>
+</div>
+
+<%= link_to 'Crear computadora', new_computer_path(:branch_id => @branch.id) %><br>
 <%= link_to 'Edit', edit_branch_path(@branch) %> |
 <%= link_to 'Back', branches_path %>

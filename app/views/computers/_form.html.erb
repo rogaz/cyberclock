@@ -15,10 +15,14 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :branch_id %><br>
-    <%= f.text_field :branch_id %>
-  </div>
+
+  <%= f.hidden_field :branch_id, value: params[:branch_id] %>
+
+  <!--<div class="field">-->
+    <!--<= f.label :branch_id %><br>-->
+    <!--<= f.text_field :branch_id %>-->
+  <!--</div>-->
+
   <div class="actions">
     <%= f.submit %>
   </div>
