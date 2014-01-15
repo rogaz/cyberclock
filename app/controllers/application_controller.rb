@@ -1,3 +1,4 @@
+#encoding: utf-8
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -21,8 +22,8 @@ class ApplicationController < ActionController::Base
   def require_user
     unless current_user
       store_location
-      flash[:notice] = "You must be logged in to access this page"
-      redirect_to new_user_session_url
+      flash[:warning] = 'Debe iniciar sesión.'
+      redirect_to root_url
       return false
     end
   end

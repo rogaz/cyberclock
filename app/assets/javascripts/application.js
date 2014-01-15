@@ -15,3 +15,10 @@
 // require turbolinks
 //= require bootstrap
 // require_tree .
+
+$(document).ready(function(){
+    setTimeout(function(){
+        $('.alert.auto-remove').hide(300, function(){this.remove});
+    }, 2000);
+
+})

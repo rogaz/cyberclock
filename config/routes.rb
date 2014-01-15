@@ -4,7 +4,7 @@ Cyberclock::Application.routes.draw do
   resource :user_session
 
 
-  root :to => 'companies#index'
+  root :to => 'user_sessions#new'
 
   resources :branches
   resources :companies
