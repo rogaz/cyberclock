@@ -17,7 +17,9 @@
 
   </div>
 
-  <%= f.hidden_field :company_id, value: params[:company_id] %>
+  <% if params[:company_id] %>
+    <%= f.hidden_field :company_id, value: params[:company_id] %>
+  <% end %>
   <!--
   <div class="field">
     <= f.label :company_id %><br>

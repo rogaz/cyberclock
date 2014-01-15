@@ -28,7 +28,7 @@ class BranchesController < ApplicationController
 
     respond_to do |format|
       if @branch.save
-        format.html { redirect_to @branch, notice: 'Branch was successfully created.' }
+        format.html { redirect_to @branch, success: 'Branch was successfully created.' }
         format.json { render action: 'show', status: :created, location: @branch }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class BranchesController < ApplicationController
   def update
     respond_to do |format|
       if @branch.update(branch_params)
-        format.html { redirect_to @branch, notice: 'Branch was successfully updated.' }
+        format.html { redirect_to @branch, success: 'Branch was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
