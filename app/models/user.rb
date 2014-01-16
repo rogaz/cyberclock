@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
     config.crypto_provider = Authlogic::CryptoProviders::MD5
   end
 
-  ROLES = %w(admin admin_branches user)
+  ROLES = %w(admin admin_company user)
 
 end

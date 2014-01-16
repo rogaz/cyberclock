@@ -1,6 +1,7 @@
 #encoding: utf-8
 class UserSessionsController < ApplicationController
 
+  skip_authorize_resource
   before_filter :require_user, :only => :destroy
 
   def new
@@ -17,7 +18,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:success] = 'Inició sesión correctamente!'
-      redirect_back_or_default branches_url
+      redirect_back_or_default home_url
     else
       render :action => :new
     end

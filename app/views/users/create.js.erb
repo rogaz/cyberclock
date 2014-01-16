@@ -1,0 +1,9 @@
+<% if @user.valid? %>
+    $('#new-admin').modal('hide');
+    $('#crear-administrador').remove();
+    setTimeout(function(){
+        $('#admin-container').empty().append('<%= escape_javascript(render partial: 'companies/admin') %>').hide().show(1000);
+    }, 500);
+<% else %>
+    $('#user-errors').empty().append('<%= escape_javascript(render partial: 'users/user_errors') %>');
+<% end %>

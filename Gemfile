@@ -50,8 +50,11 @@ gem 'puma'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-# Use for authentication
+# Use authlogic for authentication
 gem 'authlogic'
 
-# Use for roles
+# Use easy_roles for roles
 gem 'easy_roles'
+
+# Use cancan for authorization
+gem 'cancan'
