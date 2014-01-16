@@ -13,6 +13,14 @@
   <% end %>
 </div>
 
+<div class="rules">
+  <h3>Reglas</h3>
+  <% @company.rules.each do |rule| %>
+    <div><%= rule.description %></div>
+  <% end %>
+</div>
+
 <%= link_to 'Crear sucursal', new_branch_path(:company_id => @company.id) %><br>
+<%= link_to 'Crear regla', new_rule_path(:company_id => @company.id) %><br>
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>
