@@ -26,8 +26,8 @@
       </div>
       <div class="modal-body">
         <%= form_for(@user, url: '/users.js', format: :js, remote: true, html: {class: 'form-horizontal', role: 'form'}) do |f| %>
-            <!--%= f.hidden_field :role, value: 'admin_company' %-->
-            <!--%= f.hidden_field :company_id, value: @company.id %-->
+            <%= hidden_field_tag :role, 'admin_company' %>
+            <%= hidden_field_tag :company_id, @company.id %>
           <%= render 'users/form', f: f %>
         <% end %>
       </div>

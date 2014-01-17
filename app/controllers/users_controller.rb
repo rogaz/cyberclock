@@ -27,12 +27,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    @user.add_role user_params[:role] if user_params[:role]
+    @user.add_role params[:role] if params[:role]
 
     # TODO: refactorizar esta parte de código
-    if user_params[:role] == 'admin_company' && !user_params.include?(:company_id)
+    if params[:role] == 'admin_company' && !params.include?(:company_id)
       @user.errors[:base] = 'No se pudo crear el usuario por falta de parametros'
-    elsif user_params[:role] == 'admin_company'
+    elsif params[:role] == 'admin_company'
       @company = Company.find(params[:company_id])
     end
 
