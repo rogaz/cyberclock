@@ -9,16 +9,12 @@
   <% @companies.each do |company| %>
       <div class="col-6 col-sm-6 col-lg-4 company-container">
         <h2><i class="fa fa-bookmark"></i> <%= company.name %></h2>
-        <% company.branches.order(:created_at).each do |branch| %>
-            <div class="branch-item"><%= link_to "<i class='fa fa-building-o'></i> #{branch.name}".html_safe, branch %></div>
-        <% end %>
-        <div class="branch-item"><%= link_to "<i class='fa fa-plus'></i> Crear sucursal".html_safe, new_branch_path(:company_id => company.id) %></div>
-        <!--<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>-->
-        <p>
-          <%= link_to 'Ver detalles »', company, role: 'button', class: 'btn btn-default' %>
-          <%= link_to 'Editar »', edit_company_path(company), role: 'button', class: 'btn btn-info' %>
-          <%= link_to 'Eliminar »', company, method: :delete, data: { confirm: '¿Está seguro?' }, role: 'button', class: 'btn btn-danger btn-sm' %>
-        </p>
+        <div class="items">
+          <div class="item"><i class='fa fa-building-o'></i> Sucursales <span class="badge"><%= company.branches.count %></span></div>
+          <div class="item"><i class='fa fa-list'></i> Reglas <span class="badge"><%= company.rules.count %></span></div>
+          <div class="item"><i class='fa fa-dot-circle-o'></i> Promociones <span class="badge"><%= company.promotions.count %></span></div>
+        </div>
+        <p><%= link_to 'Ver detalles »', company, role: 'button', class: 'btn btn-info' %></p>
       </div>
   <% end %>
 </div>

@@ -2,14 +2,7 @@
 // They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.company-container{
-  height: 270px;
-  overflow: auto;
-  .branch-item{
-    margin: 10px 15px;
-  }
-}
-
+// index view
 #index-head{
   overflow: hidden;
   #title{
@@ -18,5 +11,31 @@
 
   #new_company{
     float: right;
+  }
+}
+
+
+.company-container{
+  .items{
+    overflow: auto;
+    margin: 0px 15px 5px;
+    .item{
+      margin: 5px 0;
+    }
+  }
+  .new-branch{
+    float: rigth;
+    margin-bottom: 10px;
+  }
+}
+
+// show view
+.company-name{
+  text-align: center;
+}
+
+.items{
+  .item{
+    margin: 5px 15px;
   }
 }

@@ -27,13 +27,28 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
+    @user.add_role params[:role] if params[:role]
+
+    # TODO: refactorizar esta parte de código
+    if params[:role] == 'admin_company' && !params.include?(:company_id)
+      @user.errors[:base] = 'No se pudo crear el usuario por falta de parametros'
+    elsif params[:role] == 'admin_company'
+      @company = Company.find(params[:company_id])
+    end
+
     respond_to do |format|
       if @user.save
+        @company.update_attribute('admin_id', @user.id) unless @company.nil?
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user }
+        format.js
       else
+        # TODO: verificar que se agregue el error cuando se envía el rol admin_branches y no tiene parámetro company_id
+        puts @user.errors.inspect
+        sleep 2
         format.html { render action: 'new' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

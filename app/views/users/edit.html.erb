@@ -1,7 +1,9 @@
 <%= provide(:title, 'Editando usuario') %>
 <h1>Editando usuario</h1>
 
-<%= render 'form' %>
+<%= form_for(@user, html: {class: 'form-horizontal', role: 'form'}) do |f| %>
+<%= render 'form', f: f %>
+<% end %>
 
 <%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>
