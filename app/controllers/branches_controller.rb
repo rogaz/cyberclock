@@ -10,6 +10,9 @@ class BranchesController < ApplicationController
   # GET /branches/1
   # GET /branches/1.json
   def show
+    if @branch.admin.nil?
+      @user = User.new
+    end
   end
 
   # GET /branches/new

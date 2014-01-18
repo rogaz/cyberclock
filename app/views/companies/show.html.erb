@@ -7,37 +7,13 @@
 
 <br/><br/>
 <div id="admin-container">
-<% if @company.admin %>
-  <%= render 'admin' %>
-<% end %>
+  <% if @company.admin %>
+    <%= render 'shared/admin', admin: @company.admin %>
+  <% end %>
 </div>
 
 <% if @company.admin.nil? %>
-<button id="crear-administrador" class="btn btn-success btn-lg" data-toggle="modal" data-target="#new-admin">
-  <i class="fa fa-user"></i> Crear administrador
-</button>
-
-<div class="modal fade" id="new-admin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Creando administrador</h4>
-      </div>
-      <div class="modal-body">
-        <%= form_for(@user, url: '/users.js', format: :js, remote: true, html: {class: 'form-horizontal', role: 'form'}) do |f| %>
-            <%= hidden_field_tag :role, 'admin_company' %>
-            <%= hidden_field_tag :company_id, @company.id %>
-          <%= render 'users/form', f: f %>
-        <% end %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+  <%= render 'shared/new_admin' %>
 <% end %>
 
 <div class="row branches">

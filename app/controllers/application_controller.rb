@@ -11,9 +11,9 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_session, :current_user
 
   rescue_from CanCan::AccessDenied do |exception|
-    puts 'no tiene permiso'
-    sleep 5
     redirect_to home_url, :alert => 'Permiso denegado'
+    #TODO: Verificar como funciona este método
+    #redirect_to_back_or_default home_url, :alert => 'Permiso denegado'
   end
 
   private
@@ -46,18 +46,18 @@ class ApplicationController < ActionController::Base
   end
 
   def home_url
-=begin
     if current_user.is_admin?
       companies_url
     elsif current_user.is_admin_company?
       company_url(Company.find_by_admin_id(current_user))
+    elsif current_user.is_admin_branch?
+      branch_url(Branch.find_by_admin_id(current_user))
+    elsif current_user.is_user?
+      #TODO: redireccionar al show de computer correspondiente
+      branches_url
     else
       branches_url
     end
-    p current_user
-    sleep 5
-=end
-    branches_url
   end
 
 end

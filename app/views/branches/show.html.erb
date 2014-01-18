@@ -3,10 +3,17 @@
 
 <h3>Sucural de <%= validate_if_nil(@branch, 'company.name') %></h3>
 
-<p>
-  <strong>Name:</strong>
-  <%= @branch.name %>
-</p>
+<h4><%= @branch.name %></h4>
+
+<div id="admin-container">
+  <% if @branch.admin %>
+      <%= render 'shared/admin', admin: @branch.admin %>
+  <% end %>
+</div>
+
+<% if @branch.admin.nil? %>
+    <%= render 'shared/new_admin' %>
+<% end %>
 
 <p>
   <strong>Dirección:</strong>

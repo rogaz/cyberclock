@@ -1,7 +1,8 @@
 class Branch < ActiveRecord::Base
 
-  belongs_to :company
-
   has_many :computers
+
+  belongs_to :admin, class_name: 'User'
+  belongs_to :company
 
 end

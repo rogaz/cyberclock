@@ -32,7 +32,11 @@
         <% if current_user.is_admin_company? %>
             <li class="companies-nav-bar"><%= link_to 'Empresa', company_path(Company.find_by_admin_id(current_user)) %></li>
         <% end %>
-        <li class="branches-nav-bar"><%= link_to 'Sucursales', branches_path %></li>
+        <% if current_user.is_admin_branch? %>
+            <li class="companies-nav-bar"><%= link_to 'Sucursal', branch_path(Branch.find_by_admin_id(current_user)) %></li>
+        <% else  %>
+            <li class="branches-nav-bar"><%= link_to 'Sucursales', branches_path %></li>
+        <% end %>
         <li class="rules-nav-bar"><%= link_to 'Reglas', rules_path %></li>
         <li class="promotions-nav-bar"><%= link_to 'Promociones', promotions_path %></li>
         <li class="products-nav-bar"><%= link_to 'Productos', products_path %></li>
