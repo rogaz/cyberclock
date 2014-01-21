@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
 
   ROLES = %w(admin admin_company admin_branch user)
 
+  has_one :company, class_name: 'Company', foreign_key: 'admin_id'
+  has_one :branch, class_name: 'Branch', foreign_key: 'admin_id'
+
   before_destroy :remove_admin_id
 
   def remove_admin_id

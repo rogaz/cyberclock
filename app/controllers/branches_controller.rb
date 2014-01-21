@@ -4,7 +4,11 @@ class BranchesController < ApplicationController
   # GET /branches
   # GET /branches.json
   def index
-    @branches = Branch.all
+    @branches = Branch.order(:id) if current_user.is_admin?
+    @branches = current_user.company.branches.order(:id) if current_user.is_admin_company?
+    if @branches.nil?
+      redirect_back_or_default home_url
+    end
   end
 
   # GET /branches/1
@@ -18,6 +22,7 @@ class BranchesController < ApplicationController
   # GET /branches/new
   def new
     @branch = Branch.new
+    params[:company_id] = current_user.company.id if current_user.is_admin_company?
   end
 
   # GET /branches/1/edit

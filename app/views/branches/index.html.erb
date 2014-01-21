@@ -11,7 +11,7 @@
       <div class="col-6 col-sm-6 col-lg-4 company-container">
         <h2><i class="fa fa-building-o"></i> <%= branch.name %></h2>
         <h6><i class="fa fa-credit-card"></i> Dirección: <%= branch.address %></h6>
-        <h6><i class="fa fa-bookmark"></i> Compañia: <%= branch.company.name %></h6>
+        <h6><i class="fa fa-bookmark"></i> Compañia: <%= validate_if_nil(branch, 'company.name') %></h6>
 
         <!--<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>-->
         <p>

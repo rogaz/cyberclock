@@ -22,21 +22,21 @@
     <% @company.branches.order(:id).each do |branch| %>
         <div class="item"><i class='fa fa-building-o'></i> <%= link_to "#{branch.name}".html_safe, branch %></div>
     <% end %>
-    <%= link_to 'Crear sucursal', new_branch_path(company_id: @company.id), class: 'btn btn-primary btn-block', role: 'button' %>
+    <%= link_to 'Crear sucursal', new_branch_path, class: 'btn btn-primary btn-block', role: 'button' %>
   </div>
   <div class="col-lg-4 items">
     <h2>Promociones</h2>
     <% @company.promotions.order(:id).each do |promotion| %>
         <div class="item"><i class='fa fa-list'></i> <%= link_to "#{promotion.description}".html_safe, promotion %></div>
     <% end %>
-    <%= link_to 'Crear promoción', new_promotion_path(company_id: @company.id), class: 'btn btn-primary btn-block', role: 'button' %>
+    <%= link_to 'Crear promoción', new_promotion_path, class: 'btn btn-primary btn-block', role: 'button' %>
   </div>
   <div class="col-lg-4 items">
     <h2>Reglas</h2>
     <% @company.rules.order(:id).each do |rule| %>
         <div class="item"><i class='fa fa-dot-circle-o'></i> <%= link_to "#{rule.description}".html_safe, rule %></div>
     <% end %>
-    <%= link_to 'Crear regla', new_rule_path(company_id: @company.id), class: 'btn btn-primary btn-block', role: 'button' %>
+    <%= link_to 'Crear regla', new_rule_path, class: 'btn btn-primary btn-block', role: 'button' %>
   </div>
 </div>
 

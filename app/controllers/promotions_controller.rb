@@ -15,6 +15,7 @@ class PromotionsController < ApplicationController
   # GET /promotions/new
   def new
     @promotion = Promotion.new
+    params[:company_id] = current_user.company.id if current_user.is_admin_company?
   end
 
   # GET /promotions/1/edit
