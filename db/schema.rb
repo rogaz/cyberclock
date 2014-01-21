@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140118013514) do
+ActiveRecord::Schema.define(version: 20140121032010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,22 @@ ActiveRecord::Schema.define(version: 20140118013514) do
   end
 
   add_index "branches", ["company_id"], name: "index_branches_on_company_id", using: :btree
+
+  create_table "branches_promotions", id: false, force: true do |t|
+    t.integer "branch_id"
+    t.integer "promotion_id"
+  end
+
+  add_index "branches_promotions", ["branch_id"], name: "index_branches_promotions_on_branch_id", using: :btree
+  add_index "branches_promotions", ["promotion_id"], name: "index_branches_promotions_on_promotion_id", using: :btree
+
+  create_table "branches_rules", id: false, force: true do |t|
+    t.integer "branch_id"
+    t.integer "rule_id"
+  end
+
+  add_index "branches_rules", ["branch_id"], name: "index_branches_rules_on_branch_id", using: :btree
+  add_index "branches_rules", ["rule_id"], name: "index_branches_rules_on_rule_id", using: :btree
 
   create_table "companies", force: true do |t|
     t.string   "name"

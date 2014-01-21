@@ -9,16 +9,19 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">Creando administrador</h4>
       </div>
+      <%= form_for(@user, url: '/users.js', format: :js, remote: true, html: {class: 'form-horizontal', role: 'form'}) do |f| %>
       <div class="modal-body">
-        <%= form_for(@user, url: '/users.js', format: :js, remote: true, html: {class: 'form-horizontal', role: 'form'}) do |f| %>
+
             <%= hidden_field_tag :company_id, @company.id if @company %>
             <%= hidden_field_tag :branch_id, @branch.id if @branch %>
             <%= render 'users/form', f: f %>
-        <% end %>
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          <%= f.submit 'Guargar usuario', class: 'btn btn-primary' %>
+        <% end %>
+        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

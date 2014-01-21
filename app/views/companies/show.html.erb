@@ -1,7 +1,9 @@
 <%= provide(:title, 'Detalles de empresa') %>
 <p id="notice"><%= notice %></p>
 
-<h1 class="company-name"><%= @company.name %></h1>
+<div class="jumbotron">
+  <h2 class="company-name"><%= @company.name %></h2>
+</div>
 <%= link_to 'Editar »', edit_company_path(@company), role: 'button', class: 'btn btn-info' %>
 <%= link_to 'Eliminar »', @company, method: :delete, data: { confirm: '¿Está seguro?' }, role: 'button', class: 'btn btn-danger btn-sm' %>
 
@@ -16,7 +18,7 @@
   <%= render 'shared/new_admin' %>
 <% end %>
 
-<div class="row branches">
+<div class="row">
   <div class="col-lg-4 items">
     <h2>Sucursales</h2>
     <% @company.branches.order(:id).each do |branch| %>
@@ -36,7 +38,7 @@
     <% @company.rules.order(:id).each do |rule| %>
         <div class="item"><i class='fa fa-dot-circle-o'></i> <%= link_to "#{rule.description}".html_safe, rule %></div>
     <% end %>
-    <%= link_to 'Crear regla', new_rule_path, class: 'btn btn-primary btn-block', role: 'button' %>
+    <%= link_to 'Crear regla', new_rule_path(company_id: @company.id), class: 'btn btn-primary btn-block', role: 'button' %>
   </div>
 </div>
 
