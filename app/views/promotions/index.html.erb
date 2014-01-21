@@ -16,7 +16,7 @@
     <% @promotions.each do |promotion| %>
       <tr>
         <td><%= promotion.description %></td>
-        <td><%= promotion.company %></td>
+        <td><%= validate_if_nil(promotion, 'company.name') %></td>
         <td><%= link_to 'Show', promotion %></td>
         <td><%= link_to 'Edit', edit_promotion_path(promotion) %></td>
         <td><%= link_to 'Destroy', promotion, method: :delete, data: { confirm: 'Are you sure?' } %></td>

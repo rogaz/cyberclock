@@ -18,16 +18,7 @@
     </div>
   </div>
 
-  <% if params[:company_id] %>
-    <%= f.hidden_field :company_id, value: params[:company_id] %>
-  <% elsif current_user.is_admin? %>
-    <div class="form-group">
-      <%= f.label :company_id, 'Empresa', class: 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
-        <%= f.collection_select :company_id, Company.order(:id), :id, :name, prompt: 'Seleccione empresa' %>
-      </div>
-    </div>
-  <% end %>
+  <%= render 'shared/company_id', f: f %>
 
   <div class="form-group">
     <%= f.label :address, 'Dirección', class: 'col-sm-2 control-label' %>

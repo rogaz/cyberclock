@@ -8,7 +8,7 @@
 
 <p>
   <strong>Company:</strong>
-  <%= @promotion.company %>
+  <%= validate_if_nil(@promotion, 'company.name') %>
 </p>
 
 <%= link_to 'Edit', edit_promotion_path(@promotion) %> |
