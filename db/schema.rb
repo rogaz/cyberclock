@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140121032010) do
+ActiveRecord::Schema.define(version: 20140123003617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 20140121032010) do
   end
 
   add_index "branches", ["company_id"], name: "index_branches_on_company_id", using: :btree
+
+  create_table "branches_products", id: false, force: true do |t|
+    t.integer "branch_id"
+    t.integer "product_id"
+  end
+
+  add_index "branches_products", ["branch_id"], name: "index_branches_products_on_branch_id", using: :btree
+  add_index "branches_products", ["product_id"], name: "index_branches_products_on_product_id", using: :btree
 
   create_table "branches_promotions", id: false, force: true do |t|
     t.integer "branch_id"
@@ -62,13 +70,16 @@ ActiveRecord::Schema.define(version: 20140121032010) do
 
   create_table "products", force: true do |t|
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "company_id"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
+
+  add_index "products", ["company_id"], name: "index_products_on_company_id", using: :btree
 
   create_table "promotions", force: true do |t|
     t.string   "description"
