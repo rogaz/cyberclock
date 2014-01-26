@@ -23,10 +23,20 @@ class BranchesController < ApplicationController
   def new
     @branch = Branch.new
     params[:company_id] = current_user.company.id if current_user.is_admin_company?
+
+    respond_to do |format|
+      format.html
+      format.widget { render '_form_js.html.erb', layout: false }
+    end
   end
 
   # GET /branches/1/edit
   def edit
+
+    respond_to do |format|
+      format.html
+      format.widget { render '_form_js.html.erb', layout: false }
+    end
   end
 
   # POST /branches
@@ -38,9 +48,11 @@ class BranchesController < ApplicationController
       if @branch.save
         format.html { redirect_to @branch, success: 'Branch was successfully created.' }
         format.json { render action: 'show', status: :created, location: @branch }
+        format.js { render partial: 'shared/create_record_js', locals: { object: @branch } }
       else
         format.html { render action: 'new' }
         format.json { render json: @branch.errors, status: :unprocessable_entity }
+        format.js { render :js => 'show_record_errors(' + @branch.errors.full_messages.to_json + ');' }
       end
     end
   end
@@ -52,9 +64,11 @@ class BranchesController < ApplicationController
       if @branch.update(branch_params)
         format.html { redirect_to @branch, success: 'Branch was successfully updated.' }
         format.json { head :no_content }
+        format.js { render partial: 'shared/create_record_js', locals: { object: @branch } }
       else
         format.html { render action: 'edit' }
         format.json { render json: @branch.errors, status: :unprocessable_entity }
+        format.js { render :js => 'show_record_errors(' + @branch.errors.full_messages.to_json + ');' }
       end
     end
   end

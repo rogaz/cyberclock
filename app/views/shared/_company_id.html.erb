@@ -4,7 +4,7 @@
     <div class="form-group">
       <%= f.label :company_id, 'Empresa', class: 'col-sm-2 control-label' %>
       <div class="col-sm-10">
-        <%= f.collection_select :company_id, Company.order(:id), :id, :name, prompt: 'Seleccione empresa' %>
+        <%= f.collection_select :company_id, Company.order(:name), :id, :name, prompt: 'Seleccione empresa' %>
       </div>
     </div>
 <% end %>

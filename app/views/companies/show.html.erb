@@ -1,3 +1,7 @@
+<% content_for :asset_javascript do %>
+    <%= javascript_include_tag 'js_crud' %>
+<% end %>
+
 <%= provide(:title, 'Detalles de empresa') %>
 <p id="notice"><%= notice %></p>
 
@@ -20,12 +24,7 @@
 
 <div class="row">
   <div class="col-lg-4 items">
-    <h2>Sucursales</h2>
-    <% @company.branches.order(:id).each do |branch| %>
-        <div class="item"><i class='fa fa-building-o'></i> <%= link_to "#{branch.name}".html_safe, branch %></div>
-    <% end %>
-    <%= link_to 'Crear sucursal', new_branch_path, class: 'btn btn-primary btn-block', role: 'button' %>
-  </div>
+    <%= render :partial => 'shared/principal_structure_for_crud_js', locals: { object_class: 'Branch', owner: @company } %></div>
   <div class="col-lg-4 items">
     <h2>Promociones</h2>
     <% @company.promotions.order(:id).each do |promotion| %>
@@ -44,3 +43,5 @@
 
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>
+
+<%= render :partial => 'shared/modal_form' %>

@@ -9,4 +9,12 @@ class Branch < ActiveRecord::Base
   has_and_belongs_to_many :products
   has_and_belongs_to_many :promotions
 
+  validates :name, presence: true
+
+  after_destroy :destroy_admin
+
+  def destroy_admin
+    self.admin.destroy if self.admin
+  end
+
 end

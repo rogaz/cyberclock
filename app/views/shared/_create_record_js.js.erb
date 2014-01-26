@@ -1,0 +1,17 @@
+
+<% object_class = object.class.to_s %>
+<% object_name  = object_class.downcase %>
+<% object_name_plural  = object_class.tableize %>
+<% class_parent_name_plural = params['parent_class'].pluralize %>
+<% sym = object_name.to_sym %>
+
+<% if params[:action] == 'create'  %>
+    $("#container-js-<%= object_name_plural %>").append('<%= escape_javascript(render "#{class_parent_name_plural}/#{object_name}", sym => object, owner_class: params[:parent_class] ) %>');
+<% elsif params[:action] == 'update' %>
+    var to_destroy = $('#object-js-<%= object_name_plural %>-<%= object.id %>')
+    to_destroy.hide();
+    $('<%= escape_javascript(render "#{class_parent_name_plural}/#{object_name}", sym => object, owner_class: params[:parent_class] ) %>').insertAfter('#object-js-<%= "#{object_name_plural}-#{object.id}" %>');
+    to_destroy.remove();
+<% end %>
+
+$('#form-record-js').modal('hide');
