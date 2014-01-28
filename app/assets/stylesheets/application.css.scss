@@ -20,3 +20,29 @@
   font-size: 2em;
   text-align: center;
 }
+
+.container-js-crud{
+  .object-js-crud{
+    position: relative;
+  }
+
+  .options-object-js{
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    width: auto;
+
+    .option{
+      display: inline-block;
+      margin-left: 2px;
+
+      :hover{
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.object-js-branches{
+  margin: 4px 0;
+}

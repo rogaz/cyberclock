@@ -1,4 +1,4 @@
-<div id="object-js-<%= branch.class.to_s.tableize %>-<%= branch.id %>" class="item">
+<div id="object-js-<%= branch.class.to_s.tableize %>-<%= branch.id %>" class="object-js-crud object-js-<%= branch.class.to_s.tableize %>">
   <i class='fa fa-building-o'></i>
   <%= link_to "#{branch.name}".html_safe, branch %>
   <small>Dirección: <%= branch.address %></small>
