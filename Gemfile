@@ -5,6 +5,7 @@ gem 'rails', '4.0.2'
 
 #Postgresql Data Base
 gem 'pg'
+gem 'rails_12factor', '0.0.2'
 
 gem 'paperclip'
 
