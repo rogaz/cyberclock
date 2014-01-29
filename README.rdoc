@@ -32,12 +32,18 @@ Please feel free to use a different markup language if you do not plan to run
 
     - Include partial of modal: <%= render :partial => 'shared/modal_form' %> this partial can be used for all cruds as necesary in the same view
 
+    - Include partial of model for which you want implement crud like follow line:
+        <%= render :partial => 'shared/principal_structure_for_crud_js', locals: { object_class: 'Comment', owner: @post } %></div>
+        Where
+            'Comment' is the class for which will be created the new record and
+            @post is the object that 'has_many' comments.
+
     - Create partial with content of element, this one has to be in the same directory of the view where you are implementing the crud
         THE OBJECT element IS AS EXAMPLE, COULD BE: car, user, article, post, etc.
         + The element of partial has to wrapped in a div like this:
             <div id="object-js-<%= element.class.to_s.tableize %>-<%= element.id %>" class="object-js-crud object-js-<%= element.class.to_s.tableize %>">
             </div>
-        + If you wish options for element (edit and destroy), you have to add the follow partial:
+        + If you wish options for element (edit and destroy), you have to add the follow partial into last div mentioned:
             <%= render partial: 'shared/options_record_js', locals: { class_name_tableize: element.class.to_s.tableize, object_id: element.id, owner_class: owner_class } %>
 
     - Create partial form for record with format: :js and remote: true
@@ -52,5 +58,5 @@ Please feel free to use a different markup language if you do not plan to run
             if save the object in case of create or if update the object in case of update, add the follow line:
                 format.js { render partial: 'shared/create_record_js', locals: { object: @element } }
             if object is invalid, add the follow line:
-                format.js { render :js => 'show_record_errors(' + @promotion.errors.full_messages.to_json + ');' }
+                format.js { render :js => 'show_record_errors(' + @element.errors.full_messages.to_json + ');' }
 
