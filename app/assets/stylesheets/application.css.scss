@@ -22,6 +22,18 @@
 }
 
 .container-js-crud{
+  position: relative;
+
+  .new-record-js{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+
+    :hover{
+      cursor: pointer;
+    }
+  }
+
   .object-js-crud{
     position: relative;
   }
@@ -34,15 +46,12 @@
 
     .option{
       display: inline-block;
-      margin-left: 2px;
 
       :hover{
+        color: #262626;
         cursor: pointer;
       }
     }
+    .option:last-child{margin-left: 10px;}
   }
-}
-
-.object-js-branches{
-  margin: 4px 0;
 }

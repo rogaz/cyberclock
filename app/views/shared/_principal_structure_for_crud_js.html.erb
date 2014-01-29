@@ -3,12 +3,13 @@
 <% owner_class = owner.class.to_s %>
 <% owner_id = owner.id %>
 <% owner_class_downcase = owner_class.downcase %>
-
-<h2><%= object_class.pluralize %></h2>
-<div id="container-js-<%= object_class.tableize %>" class="container-js-crud">
-  <% owner.send(object_class.tableize).order(:id).each do |object| %>
+<div class="container-js-crud">
+  <h2><%= object_class.pluralize %></h2>
+  <div id="container-js-<%= object_class.tableize %>">
+    <% owner.send(object_class.tableize).order(:id).each do |object| %>
       <% sym = object_class_downcase.to_sym %>
       <%= render partial: "#{owner_class.tableize}/#{object_class_downcase}", locals: { sym => object, owner_class: owner_class_downcase } %>
-  <% end %>
+    <% end %>
+  </div>
+  <%= render 'shared/trigger_modal_form', record_class: object_class_downcase, owner_class: owner_class_downcase, owner_id: owner_id %>
 </div>
-<%= render 'shared/trigger_modal_form', record_class: object_class_downcase, owner_class: owner_class_downcase, owner_id: owner_id %>
