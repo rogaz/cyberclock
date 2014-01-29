@@ -15,10 +15,20 @@ class ComputersController < ApplicationController
   # GET /computers/new
   def new
     @computer = Computer.new
+
+    respond_to do |format|
+      format.html
+      format.widget { render '_form_js.html.erb', layout: false }
+    end
   end
 
   # GET /computers/1/edit
   def edit
+
+    respond_to do |format|
+      format.html
+      format.widget { render '_form_js.html.erb', layout: false }
+    end
   end
 
   # POST /computers
@@ -30,9 +40,11 @@ class ComputersController < ApplicationController
       if @computer.save
         format.html { redirect_to @computer, notice: 'Computer was successfully created.' }
         format.json { render action: 'show', status: :created, location: @computer }
+        format.js { render partial: 'shared/create_record_js', locals: { object: @computer } }
       else
         format.html { render action: 'new' }
         format.json { render json: @computer.errors, status: :unprocessable_entity }
+        format.js { render :js => 'show_record_errors(' + @computer.errors.full_messages.to_json + ');' }
       end
     end
   end
@@ -44,9 +56,11 @@ class ComputersController < ApplicationController
       if @computer.update(computer_params)
         format.html { redirect_to @computer, notice: 'Computer was successfully updated.' }
         format.json { head :no_content }
+        format.js { render partial: 'shared/create_record_js', locals: { object: @computer } }
       else
         format.html { render action: 'edit' }
         format.json { render json: @computer.errors, status: :unprocessable_entity }
+        format.js { render :js => 'show_record_errors(' + @computer.errors.full_messages.to_json + ');' }
       end
     end
   end

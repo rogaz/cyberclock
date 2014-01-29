@@ -1,3 +1,9 @@
+<%= content_for :asset_javascript do %>
+    <%= javascript_include_tag 'js_crud' %>
+<% end %>
+
+<%= render :partial => 'shared/modal_form' %>
+
 <%= provide(:title, 'Detalles de sucursal') %>
 <p id="notice"><%= notice %></p>
 
@@ -19,13 +25,8 @@
 <% end %>
 
 <div id="computers-container" class="row">
-  <% @branch.computers.order(:id).each do |computer| %>
-  <div class="col-lg-4 items">
-    <h2><i class="fa fa-desktop"></i> <%= computer.name %></h2>
-  </div>
-  <% end %>
+  <%= render :partial => 'shared/principal_structure_for_crud_js', locals: { object_class: 'Computer', owner: @branch } %></div>
 </div>
 <br>
-<%= link_to 'Crear computadora', new_computer_path(:branch_id => @branch.id) %><br>
 <%= link_to 'Edit', edit_branch_path(@branch) %> |
 <%= link_to 'Back', branches_path %>
