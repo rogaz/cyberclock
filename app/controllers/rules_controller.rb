@@ -16,10 +16,20 @@ class RulesController < ApplicationController
   def new
     @rule = Rule.new
     params[:company_id] = current_user.company.id if current_user.is_admin_company?
+
+    respond_to do |format|
+      format.html
+      format.widget { render '_form_js.html.erb', layout: false }
+    end
   end
 
   # GET /rules/1/edit
   def edit
+
+    respond_to do |format|
+      format.html
+      format.widget { render '_form_js.html.erb', layout: false }
+    end
   end
 
   # POST /rules
@@ -31,9 +41,11 @@ class RulesController < ApplicationController
       if @rule.save
         format.html { redirect_to @rule, notice: 'Rule was successfully created.' }
         format.json { render action: 'show', status: :created, location: @rule }
+        format.js { render partial: 'shared/create_record_js', locals: { object: @rule } }
       else
         format.html { render action: 'new' }
         format.json { render json: @rule.errors, status: :unprocessable_entity }
+        format.js { render :js => 'show_record_errors(' + @rule.errors.full_messages.to_json + ');' }
       end
     end
   end
@@ -45,9 +57,11 @@ class RulesController < ApplicationController
       if @rule.update(rule_params)
         format.html { redirect_to @rule, notice: 'Rule was successfully updated.' }
         format.json { head :no_content }
+        format.js { render partial: 'shared/create_record_js', locals: { object: @rule } }
       else
         format.html { render action: 'edit' }
         format.json { render json: @rule.errors, status: :unprocessable_entity }
+        format.js { render :js => 'show_record_errors(' + @rule.errors.full_messages.to_json + ');' }
       end
     end
   end

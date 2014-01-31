@@ -1,0 +1,6 @@
+<div id="object-js-<%= rule.class.to_s.tableize %>-<%= rule.id %>" class="object-js-crud object-js-<%= rule.class.to_s.tableize %>">
+  <i class='fa fa-building-o'></i>
+  <%= link_to "#{rule.description}".html_safe, rule %>
+
+  <%= render partial: 'shared/options_record_js', locals: { class_name_tableize: rule.class.to_s.tableize, object_id: rule.id, owner_class: owner_class } %>
+</div>

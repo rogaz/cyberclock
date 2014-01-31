@@ -61,3 +61,6 @@ gem 'easy_roles'
 
 # Use cancan for authorization
 gem 'cancan'
+
+# Forms multipart via js
+gem 'remotipart', '1.0.5'

@@ -16,10 +16,20 @@ class PromotionsController < ApplicationController
   def new
     @promotion = Promotion.new
     params[:company_id] = current_user.company.id if current_user.is_admin_company?
+
+    respond_to do |format|
+      format.html
+      format.widget { render '_form_js.html.erb', layout: false }
+    end
   end
 
   # GET /promotions/1/edit
   def edit
+
+    respond_to do |format|
+      format.html
+      format.widget { render '_form_js.html.erb', layout: false }
+    end
   end
 
   # POST /promotions
@@ -31,9 +41,11 @@ class PromotionsController < ApplicationController
       if @promotion.save
         format.html { redirect_to @promotion, notice: 'Promotion was successfully created.' }
         format.json { render action: 'show', status: :created, location: @promotion }
+        format.js { render partial: 'shared/create_record_js', locals: { object: @promotion } }
       else
         format.html { render action: 'new' }
         format.json { render json: @promotion.errors, status: :unprocessable_entity }
+        format.js { render :js => 'show_record_errors(' + @promotion.errors.full_messages.to_json + ');' }
       end
     end
   end
@@ -45,9 +57,11 @@ class PromotionsController < ApplicationController
       if @promotion.update(promotion_params)
         format.html { redirect_to @promotion, notice: 'Promotion was successfully updated.' }
         format.json { head :no_content }
+        format.js { render partial: 'shared/create_record_js', locals: { object: @promotion } }
       else
         format.html { render action: 'edit' }
         format.json { render json: @promotion.errors, status: :unprocessable_entity }
+        format.js { render :js => 'show_record_errors(' + @promotion.errors.full_messages.to_json + ');' }
       end
     end
   end

@@ -71,12 +71,12 @@ ActiveRecord::Schema.define(version: 20140123003617) do
   create_table "products", force: true do |t|
     t.text     "description"
     t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   add_index "products", ["company_id"], name: "index_products_on_company_id", using: :btree

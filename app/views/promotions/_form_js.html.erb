@@ -1,0 +1,29 @@
+<%= form_for(@promotion, format: :js, remote: true, html: {class: 'form-horizontal', role: 'form'}) do |f| %>
+  <% if @promotion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@promotion.errors.count, "error") %> prohibited this promotion from being saved:</h2>
+
+      <ul>
+      <% @promotion.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="form-group">
+    <%= f.label :description, 'Descripción', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_area :description %>
+    </div>
+  </div>
+
+  <%= render 'shared/company_id', f: f %>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit 'Guardar', class: 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>

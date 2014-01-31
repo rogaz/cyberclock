@@ -1,0 +1,7 @@
+<div id="object-js-<%= product.class.to_s.tableize %>-<%= product.id %>" class="object-js-crud object-js-<%= product.class.to_s.tableize %>">
+  <i class='fa fa-building-o'></i>
+  <%= link_to "#{image_tag(product.picture.url())}".html_safe, product %>
+  <%= product.description %>
+
+  <%= render partial: 'shared/options_record_js', locals: { class_name_tableize: product.class.to_s.tableize, object_id: product.id, owner_class: owner_class } %>
+</div>

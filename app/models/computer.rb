@@ -1,7 +1,7 @@
 class Computer < ActiveRecord::Base
 
-  validates :name, presence: true
-
   belongs_to :branch
+
+  validates :name, presence: true
 
 end

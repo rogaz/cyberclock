@@ -15,10 +15,20 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+
+    respond_to do |format|
+      format.html
+      format.widget { render '_form_js.html.erb', layout: false }
+    end
   end
 
   # GET /products/1/edit
   def edit
+
+    respond_to do |format|
+      format.html
+      format.widget { render '_form_js.html.erb', layout: false }
+    end
   end
 
   # POST /products
@@ -30,9 +40,11 @@ class ProductsController < ApplicationController
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render action: 'show', status: :created, location: @product }
+        format.js { render partial: 'shared/create_record_js', locals: { object: @product } }
       else
         format.html { render action: 'new' }
         format.json { render json: @product.errors, status: :unprocessable_entity }
+        format.js { render :js => 'show_record_errors(' + @product.errors.full_messages.to_json + ');' }
       end
     end
   end
@@ -44,9 +56,11 @@ class ProductsController < ApplicationController
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
         format.json { head :no_content }
+        format.js { render partial: 'shared/create_record_js', locals: { object: @product } }
       else
         format.html { render action: 'edit' }
         format.json { render json: @product.errors, status: :unprocessable_entity }
+        format.js { render :js => 'show_record_errors(' + @product.errors.full_messages.to_json + ');' }
       end
     end
   end
