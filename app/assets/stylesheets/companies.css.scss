@@ -30,10 +30,17 @@
 }
 
 // show view
-.company-name{
-  text-align: center;
-}
+#company-container{
+  padding-bottom: 20px;
+  padding-top: 20px;
 
-.object-js-branches{
-  margin: 4px 0;
+  .company-name{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  .object-js-branches{
+    margin: 4px 0;
+  }
 }

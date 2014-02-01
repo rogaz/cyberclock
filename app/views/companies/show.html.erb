@@ -5,7 +5,7 @@
 <%= provide(:title, 'Detalles de empresa') %>
 <p id="notice"><%= notice %></p>
 
-<div class="jumbotron">
+<div id="company-container" class="jumbotron">
   <h2 class="company-name"><%= @company.name %></h2>
 </div>
 <%= link_to 'Editar »', edit_company_path(@company), role: 'button', class: 'btn btn-info' %>
@@ -23,17 +23,17 @@
 <% end %>
 
 <div class="row">
-  <div class="col-lg-6 items">
+  <div class="row items">
     <%= render :partial => 'shared/principal_structure_for_crud_js', locals: { object_class: 'Branch', owner: @company } %>
   </div>
-  <div class="col-lg-6 items">
+  <div class="row items">
     <%= render :partial => 'shared/principal_structure_for_crud_js', locals: { object_class: 'Promotion', owner: @company } %>
   </div>
-  <div class="col-lg-6 items">
-    <%= render :partial => 'shared/principal_structure_for_crud_js', locals: { object_class: 'Rules', owner: @company } %>
+  <div class="row items">
+    <%= render :partial => 'shared/principal_structure_for_crud_js', locals: { object_class: 'Rule', owner: @company } %>
   </div>
-  <div class="col-lg-6 items">
-    <%= render :partial => 'shared/principal_structure_for_crud_js', locals: { object_class: 'Products', owner: @company } %>
+  <div class="row items">
+    <%= render :partial => 'shared/principal_structure_for_crud_js', locals: { object_class: 'Product', owner: @company } %>
   </div>
 </div>
 
