@@ -7,4 +7,6 @@ class Company < ActiveRecord::Base
 
   belongs_to :admin, class_name: 'User'
 
+  validates :name, presence: true
+
 end

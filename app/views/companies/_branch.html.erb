@@ -1,7 +1,8 @@
-<div id="object-js-<%= branch.class.to_s.tableize %>-<%= branch.id %>" class="object-js-crud object-js-<%= branch.class.to_s.tableize %>">
-  <i class='fa fa-building-o'></i>
-  <%= link_to "#{branch.name}".html_safe, branch %>
-  <small>Dirección: <%= branch.address %></small>
+<div id="object-js-<%= branch.class.to_s.tableize %>-<%= branch.id %>" class="col-md-4 col-sm-6 col-xs-12 object-js-crud object-js-<%= branch.class.to_s.tableize %>">
+  <i class='fa fa-building-o fa-4x'></i>
+  <%= link_to "#{branch.name}".html_safe, branch, class: 'name' %>
+  <% if branch.address && branch.address.length > 0 %><small class="address">Dirección: <%= branch.address %></small><% end %>
+  <% if branch.phone && branch.phone.length > 0 %><small class="phone">Teléfono: <%= branch.phone %></small><% end %>
 
   <%= render partial: 'shared/options_record_js', locals: { class_name_tableize: branch.class.to_s.tableize, object_id: branch.id, owner_class: owner_class } %>
 

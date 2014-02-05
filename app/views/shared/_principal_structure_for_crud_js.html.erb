@@ -4,8 +4,8 @@
 <% owner_id = owner.id %>
 <% owner_class_downcase = owner_class.downcase %>
 <div class="container-js-crud">
-  <h2><%= object_class.pluralize %></h2>
-  <div id="container-js-<%= object_class.tableize %>">
+  <h2><%= t(object_class_downcase.pluralize) %></h2>
+  <div id="container-js-<%= object_class.tableize %>" class="row">
     <% owner.send(object_class.tableize).order(:id).each do |object| %>
       <% sym = object_class_downcase.to_sym %>
       <%= render partial: "#{owner_class.tableize}/#{object_class_downcase}", locals: { sym => object, owner_class: owner_class_downcase } %>

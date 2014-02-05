@@ -1,5 +1,5 @@
-<div id="object-js-<%= promotion.class.to_s.tableize %>-<%= promotion.id %>" class="object-js-crud object-js-<%= promotion.class.to_s.tableize %>">
-  <i class='fa fa-building-o'></i>
+<div id="object-js-<%= promotion.class.to_s.tableize %>-<%= promotion.id %>" class="col-md-4 col-sm-6 col-xs-12 object-js-crud object-js-<%= promotion.class.to_s.tableize %>">
+  <i class='fa fa-bolt'></i>
   <%= link_to "#{promotion.description}".html_safe, promotion %>
 
   <%= render partial: 'shared/options_record_js', locals: { class_name_tableize: promotion.class.to_s.tableize, object_id: promotion.id, owner_class: owner_class } %>

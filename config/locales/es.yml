@@ -1,0 +1,91 @@
+es:
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: "debe ser aceptado"
+      blank: "no puede estar en blanco"
+      confirmation: "no coincide con la confirmación"
+      empty: "no puede estar vacío"
+      equal_to: "debe ser igual a %{count}"
+      even: "debe ser un número par"
+      exclusion: "está reservado"
+      greater_than: "debe ser mayor que %{count}"
+      greater_than_or_equal_to: "debe ser mayor o igual que %{count}"
+      inclusion: "no está incluído en la lista"
+      invalid: "es inválido"
+      less_than: "debe ser menor que %{count}"
+      less_than_or_equal_to: "debe ser menor o igual que %{count}"
+      not_a_number: "no es un número"
+      not_an_integer: "debe ser un entero"
+      odd: "debe ser un número non"
+      too_short:
+        one: "es demasiado corto (mínimo 1 caracter)"
+        other: "es demasiado corto (mínimo %{count} caracteres)"
+      too_long:
+        one: "es demasiado largo (máximo 1 caracter)"
+        other: "es demasiado largo (máximo %{count} caracteres)"
+      wrong_length:
+        one: "longitud errónea (debe ser de 1 caracter)"
+        other: "longitud errónea (debe ser de %{count} caracteres)"
+  activemodel:
+      errors:
+        <<: *errors
+
+  branches: Sucursales
+  promotions: Promociones
+  rules: Reglas
+  products: Productos
+
+  activerecord:
+    models:
+      branch: sucursal
+      company: empresa
+      computer: computadora
+      product: producto
+      promotion: promoción
+      rent: renta
+      rule: regla
+      user: usuario
+
+    attributes:
+      branch:
+        name: 'Nombre'
+        company_id: 'Empresa'
+        address: 'Dirección'
+        phone: 'Teléfono'
+        admin_id: 'Administrador'
+      company:
+        name: 'Nombre'
+        admin_id: 'Administrador'
+      computer:
+        name: 'Nombre'
+        branch_id: 'Sucursal'
+      product:
+        description: 'Descripción'
+        company_id: 'Empresa'
+        picture: 'Imágen'
+      promotion:
+        description: 'Descripción'
+        company_id: 'Empresa'
+      rent:
+        name: 'Nombre'
+        duration: 'Duración'
+        rent_type: 'Tipo de renta'
+        computer_id: 'Computadora'
+      rule:
+        description: 'Descripción'
+        company_id: 'Empresa'
+      user:
+        name: 'Nombre'
+        address: 'Dirección'
+        phone: 'Teléfono'
+        login: 'Login'
+        email: 'Correo electrónico'
+        password: 'Contraseña'
+        password_confirmation: 'Confirmación de contraseña'
+
+  helpers:
+    submit:
+          create: 'Crear %{model}'
+          update: 'Actualizar %{model}'
+          submit: 'Guardar %{model}'

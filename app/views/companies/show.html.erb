@@ -7,11 +7,12 @@
 
 <div id="company-container" class="jumbotron">
   <h2 class="company-name"><%= @company.name %></h2>
+  <div class="company-options">
+    <%= link_to 'Editar »', edit_company_path(@company), role: 'button', class: 'btn btn-info' %>
+    <%= link_to 'Eliminar »', @company, method: :delete, data: { confirm: '¿Está seguro?' }, role: 'button', class: 'btn btn-danger btn-sm' %>
+  </div>
 </div>
-<%= link_to 'Editar »', edit_company_path(@company), role: 'button', class: 'btn btn-info' %>
-<%= link_to 'Eliminar »', @company, method: :delete, data: { confirm: '¿Está seguro?' }, role: 'button', class: 'btn btn-danger btn-sm' %>
 
-<br/><br/>
 <div id="admin-container">
   <% if @company.admin %>
     <%= render 'shared/admin', admin: @company.admin %>
@@ -22,22 +23,18 @@
   <%= render 'shared/new_admin' %>
 <% end %>
 
-<div class="row">
-  <div class="row items">
+
+  <div class="items">
     <%= render :partial => 'shared/principal_structure_for_crud_js', locals: { object_class: 'Branch', owner: @company } %>
   </div>
-  <div class="row items">
+  <div class="items">
     <%= render :partial => 'shared/principal_structure_for_crud_js', locals: { object_class: 'Promotion', owner: @company } %>
   </div>
-  <div class="row items">
+  <div class="items">
     <%= render :partial => 'shared/principal_structure_for_crud_js', locals: { object_class: 'Rule', owner: @company } %>
   </div>
-  <div class="row items">
+  <div class="items">
     <%= render :partial => 'shared/principal_structure_for_crud_js', locals: { object_class: 'Product', owner: @company } %>
   </div>
-</div>
-
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
 
 <%= render :partial => 'shared/modal_form' %>

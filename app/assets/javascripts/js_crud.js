@@ -29,6 +29,8 @@ function new_record(class_record, owner_class, owner_id){
         hide_loading_icon();
         element.empty().append(html);
         element.find('form').append('<input type="hidden" name="parent_class" value="' + owner_class + '">');
+        var title = element.find('form').find('input[type=submit]').attr('value');
+        element.parent().find('.modal-title').text(title);
     });
 }
 
@@ -40,6 +42,8 @@ function edit_record(class_name_tableize, object_id, owner_class){
         hide_loading_icon();
         element.empty().append(html);
         element.find('form').append('<input type="hidden" name="parent_class" value="' + owner_class + '">');
+        var title = element.find('form').find('input[type=submit]').attr('value');
+        element.parent().find('.modal-title').text(title);
     });
 }
 

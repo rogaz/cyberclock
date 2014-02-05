@@ -1,4 +1,2 @@
 <% record_class_plural = record_class.pluralize %>
-<div class="new-record-js btn btn-success btn-xs">
-  <i class="fa fa-plus"  data-toggle="modal" data-target="#form-record-js" title="Crear <%= record_class_plural.singularize %>" onclick="new_record('<%= record_class_plural %>', '<%= owner_class %>', <%= owner_id %>)"></i>
-</div>
+<i class="new-record-js btn btn-success btn-xs fa fa-plus fa-lg"  data-toggle="modal" data-target="#form-record-js" title="Crear <%= record_class_plural.singularize %>" onclick="new_record('<%= record_class_plural %>', '<%= owner_class %>', <%= owner_id %>)"></i>

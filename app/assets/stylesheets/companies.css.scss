@@ -33,6 +33,7 @@
 #company-container{
   padding-bottom: 20px;
   padding-top: 20px;
+  position: relative;
 
   .company-name{
     margin: 0;
@@ -40,7 +41,24 @@
     text-align: center;
   }
 
-  .object-js-branches{
-    margin: 4px 0;
+  .company-options{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+}
+
+.object-js-branches{
+  margin: 4px 0;
+
+  .fa{ float: left; margin-right: 3px; }
+  .name, .address, .phone{display: block}
+}
+
+.object-js-products{
+  text-align: center;
+  img{
+    height: 100px;
+    width: 100px;
   }
 }

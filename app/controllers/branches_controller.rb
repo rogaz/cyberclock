@@ -91,6 +91,6 @@ class BranchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def branch_params
-      params.require(:branch).permit(:name, :company_id, :address)
+      params.require(:branch).permit(:name, :company_id, :address, :phone)
     end
 end
