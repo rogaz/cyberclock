@@ -29,4 +29,10 @@ class Branch < ActiveRecord::Base
     all_promotions = self.company.promotions.order(:description)
     all_promotions - promotions
   end
+
+  def products_unassigned
+    all_products = self.company.products.order(:description)
+    all_products - self.products
+  end
+
 end
