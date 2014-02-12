@@ -1,0 +1,14 @@
+<% first_class = first_element.class.to_s.underscore %>
+<% first_class_tableize = first_class.tableize %>
+<% second_class_tableize = second_class.tableize %>
+<div id="<%= second_class_tableize %>-container" class="union-habtm">
+  <h3><i class="btn btn-success btn-xs fa fa-plus" title="Agregar más reglas" onclick="manage_unassigned_elements('<%= second_class_tableize %>')"></i> <%= t(second_class_tableize) %></h3>
+
+  <div id="<%= second_class_tableize %>-assigned" class="row assigned-list">
+    <!--%= render 'branches/unions_habtm/rules_assigned', branch: first_element %-->
+    <%= render "#{first_class_tableize}/unions_habtm/#{second_class_tableize}_assigned", first_class.to_sym => first_element %>
+  </div>
+  <div id="<%= second_class_tableize %>-unassigned" class="row unassigned-list" style="display: none">
+    <%= render "#{first_class_tableize}/unions_habtm/#{second_class_tableize}_unassigned", first_class.to_sym => first_element %>
+  </div>
+</div>

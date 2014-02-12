@@ -1,0 +1,450 @@
+# Spanish as spoken in Mexico (es-MX) translations for Rails
+# by Edgar J. Suárez (edgar.js@gmail.com)
+# Fixed currency format (Can't convert string to symbol)
+# by Ivan Torres (mexpolk@gmail.com)
+# Added datetime / prompts for time_select helper
+# by Daniel Roux ( daniel.roux@gmail.com)
+# Added missing translations for Rails 2 and 3
+# by Carlos González ( carlosdavid.gonzalez@gmail.com)
+# Corrected by Eloy Serra Labán: http://goo.gl/i9Kts, /nQ928, /XfKaX
+
+es:
+  number:
+    percentage:
+      format:
+        delimiter: ","
+    currency:
+      format:
+        format: "%u%n"
+        unit: "$"
+        separator: "."
+        delimiter: ","
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+    format:
+      delimiter: ","
+      precision: 2
+      significant: false
+      strip_insignificant_zeros: false
+      separator: "."
+    human:
+      format:
+        delimiter: ","
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "mil"
+          million: "millón"
+          billion: "mil millones"
+          trillion: "billón"
+          quadrillion: "mil billones"
+    precision:
+      format:
+        delimiter: ","
+
+  date:
+    order:
+      - :day
+      - :month
+      - :year
+    abbr_day_names:
+      - dom
+      - lun
+      - mar
+      - mié
+      - jue
+      - vie
+      - sáb
+    abbr_month_names:
+      - ~
+      - ene
+      - feb
+      - mar
+      - abr
+      - may
+      - jun
+      - jul
+      - ago
+      - sep
+      - oct
+      - nov
+      - dic
+    day_names:
+      - domingo
+      - lunes
+      - martes
+      - miércoles
+      - jueves
+      - viernes
+      - sábado
+    month_names:
+      - ~
+      - Enero
+      - Febrero
+      - Marzo
+      - Abril
+      - Mayo
+      - Junio
+      - Julio
+      - Agosto
+      - Septiembre
+      - Octubre
+      - Noviembre
+      - Diciembre
+    formats:
+      short: "%d de %b"
+      default: "%d/%m/%Y"
+      long: "%A, %d de %B de %Y"
+  time:
+    formats:
+      short: "%d de %b a las %H:%M hrs"
+      default: "%a, %d de %b de %Y a las %H:%M:%S %Z"
+      long: "%A, %d de %B de %Y a las %I:%M %p"      
+    am: "am"
+    pm: "pm"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " y "
+      last_word_connector: " y "
+
+    select:
+      prompt: "Seleccione"
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "medio minuto"
+      less_than_x_seconds:
+        one: "menos de 1 segundo"
+        other: "menos de %{count} segundos"
+      x_seconds:
+        one: "1 segundo"
+        other: "%{count} segundos"
+      less_than_x_minutes:
+        one: "menos de 1 minuto"
+        other: "menos de %{count} minutos"
+      x_minutes:
+        one: "1 minuto"
+        other: "%{count} minutos"
+      about_x_hours:
+        one: "cerca de 1 hora"
+        other: "cerca de %{count} horas"
+      x_days:
+        one: "1 día"
+        other: "%{count} días"
+      about_x_months:
+        one: "cerca de 1 mes"
+        other: "cerca de %{count} meses"
+      x_months:
+        one: "1 mes"
+        other: "%{count} meses"
+      about_x_years:
+        other: "cerca de %{count} años"
+        one: "cerca de 1 año"
+      over_x_years:
+        one: "más de 1 año"
+        other: "más de %{count} años"
+      almost_x_years:
+        one:   "casi 1 año"
+        other: "casi %{count} años"
+    prompts:
+      year: 'Año'
+      month: 'Mes'
+      day: 'Día'
+      hour: 'Hora'
+      minute: 'Minuto'
+      second: 'Segundos'
+
+  helpers:
+    label:
+      evaluator_item:
+        item_type: 'Tipo de complemento'
+        title: 'Título o nombre'
+        description: 'Descripción'
+        evidence: 'Evidencia'
+      evaluator_language:
+        language: 'Idioma'
+        domain_percentage: 'Porcentaje de dominio'
+      evaluator_professional_experience:
+        sei_id: 'Institución de educación superior'
+        organization: 'Empresa o compañía'
+        job: 'Puesto'
+        start_date: 'Fecha de inicio'
+        end_date: 'Fecha de finalización'
+        to_date: 'Actualidad'
+      evaluator_study:
+        educational_level_id: 'Nivel educativo'
+        institution: 'Institución'
+        career: 'Carrera'
+        titulation_date: 'Fecha de titulación'
+      attachment:
+        name: 'Nombre'
+        attachment_type_id: 'Tipo de documento'
+
+    select:
+      prompt: "Seleccione"
+
+    submit:
+      create: 'Crear %{model}'
+      update: 'Actualizar %{model}'
+      submit: 'Guardar %{model}'
+      
+    errors:
+      format: "%{attribute} %{message}"
+
+      messages: &errors_messages
+        inclusion: "no está incluído en la lista"
+        exclusion: "está reservado"
+        invalid: "es inválido"
+        confirmation: "no coincide con la confirmación"
+        blank: "no puede estar en blanco"
+        empty: "no puede estar vacío"
+        not_a_number: "no es un número"
+        not_an_integer: "debe ser un entero"
+        less_than: "debe ser menor que %{count}"
+        less_than_or_equal_to: "debe ser menor o igual que %{count}"
+        greater_than: "debe ser mayor que %{count}"
+        greater_than_or_equal_to: "debe ser mayor o igual que %{count}"
+        too_short:
+          one: "es demasiado corto (mínimo 1 caracter)"
+          other: "es demasiado corto (mínimo %{count} caracteres)"
+        too_long:
+          one: "es demasiado largo (máximo 1 caracter)"
+          other: "es demasiado largo (máximo %{count} caracteres)"
+        equal_to: "debe ser igual a %{count}"
+        wrong_length:
+          one: "longitud errónea (debe ser de 1 caracter)"
+          other: "longitud errónea (debe ser de %{count} caracteres)"
+        accepted: "debe ser aceptado"
+        even: "debe ser un número par"
+        odd: "debe ser un número non"
+
+  activerecord:
+    models:
+      evaluator: evaluador
+      evaluator_study: estudio de evaluador
+      evaluator_professional_experience: experiencia profesional de evaluador
+      evaluator_language: idioma de evaluador
+      phone: teléfono
+      user_contact: contacto
+      attachment: documento
+
+    attributes:
+      evaluator:
+        municipality_id: "Delegación o municipio"
+        state_id: 'Entidad federativa'
+        locality: "Localidad"
+        gender: "Género"
+        street: "Calle"
+        number: "Número exterior, número interior"
+        colony: "Colonia"
+        zipcode: "Código postal"
+        user_login: "Login"
+        phones: "Teléfonos"
+        accrediting_agencies: "Organismos acreditadores"
+        contacts: "Datos de contacto"
+        studies: "Formación académica"
+        professional_experiences: "Experiencia profesional"
+        curp: "CURP"
+        rfc: "RFC"
+        birthplace: "Lugar de nacimiento"
+        birth_date: "Fecha de nacimiento"
+        nobilis_id: "Título o grado"
+        experience: "Años de experiencia en evaluación/acreditación"
+      user:
+        first_name: "Nombre"
+        last_name: "Apellido paterno"
+        last_name2: "Apellido materno"
+        login: "Nombre de usuario"
+        email: "Correo electrónico"
+        password: "Contraseña"
+        password_confirmation: "Confirmación de contraseña"
+        role_id: 'Rol'
+        avatar: 'Foto de perfil'
+      evaluator_professional_experience:
+        institution: "Institución"
+        sei_id: "Institución"
+        job: "Puesto"
+        organization: "Empresa o compañia"
+      evaluator_language:
+        domain_percentage: "Porcentaje de dominio"
+        language: "Idioma"
+      sei:
+        name: 'Nombre'
+        abbreviation: 'Nombre corto'
+        sep_key: 'Clave SEP'
+        municipality_id: "Delegación o municipio"
+        locality: 'Localidad'
+        sei_type_id: 'Tipo de institución'
+        sei_subgroup_id: 'Subgrupo'
+        address: 'Domicilio'
+        colony: 'Colonia'
+        zipcode: 'Código postal'
+        phone: 'Teléfono institucional'
+        teachers_npa: 'Número de profesores con nivel profesional asociado'
+        undergraduate_teachers: 'Número de profesores con licenciatura'
+        graduate_teachers: 'Número de profesores con posgrado'
+        teachers_sni1: 'Número de profesores en sistema nacional de investigadores nivel 1'
+        teachers_sni2: 'Número de profesores en sistema nacional de investigadores nivel 2'
+        teachers_sni3: 'Número de profesores en sistema nacional de investigadores nivel 3'
+        teachers_candidatos: 'Número de profesores candidatos al sistema nacional de investigadores'
+        total_teachers: 'Total de profesores en sistema nacional de investigadores'
+        email: 'Correo institucional'
+        web_page: 'Página web'
+        date_of_low: 'Fecha de baja'
+        sei_status_id: 'Estatus'
+        mission: 'Misión'
+        vision: 'Visión'
+        policies: 'Políticas'
+        strategic_lines: 'Lineas estratégicas'
+      career:
+        name: 'Nombre'
+      accrediting_agency:
+        abbreviation: 'Siglas'
+        name: 'Nombre'
+        municipality_id: "Delegación o municipio"
+        locality: 'Localidad'
+        street: 'Calle'
+        number: 'Número'
+        colony: 'Colonia'
+        zipcode: 'Código postal'
+        phone: 'Teléfono institucional'
+        email: 'Correo electrónico institucional'
+        web_page: 'Página web'
+        state: 'Entidad federativa'
+        state_id: 'Entidad federativa'
+        logo: 'Logotipo institucional'
+      campus:
+        name: 'Nombre'
+        sei_name: 'Institución de educación superior'
+        state: 'Entidad federativa'
+        municipality_id: 'Delegación o municipio'
+      academic_unit:
+        name: 'Nombre'
+        campus_id: 'Campus'
+        address: 'Dirección'
+        zip_code: 'Código postal'
+        operation_start_date: 'Inicio de operaciones'
+        sep_key: 'Clave SEP'
+        mission: 'Misión'
+        vision: 'Visión'
+        strategic_objectives: 'Objetivos estratégicos'
+      educational_program:
+        academic_unit_id: 'Unidad académica'
+        career_name: 'Nombre del programa educativo'
+        sep_key: 'Clave SEP'
+        educational_level_id: 'Nivel educativo'
+        modality_id: 'Modalidad'
+        educational_program_area: 'Área'
+        educational_program_subbranch_id: 'Subrama'
+        previous_key: 'Clave SEP anterior'
+        dgpp_status_id: 'Estatus DGPP'
+        man_matriculate: 'Matrícula hombres'
+        woman_matriculate: 'Matrícula mujeres'
+        total_matriculate: 'Matrícula total'
+        man_graduate: 'Egresados hombres'
+        woman_graduate: 'Egresados mujeres'
+        total_graduate: 'Egresados total'
+        man_certificated: 'Titulados hombres'
+        woman_certificated: 'Titulados mujeres'
+        total_certificated: 'Titulados total'
+        man_demand: 'Solicitudes de hombres'
+        woman_demand: 'Solicitudes de mujeres'
+        total_demand: 'Solicitudes total'
+        ciees_consolidation_level: 'Nivel de consolidación de CIEES'
+        ciees_control_number: 'Número de control de CIEES'
+        ciees_updated_date: 'Fecha de actualización de CIEES'
+        dpees_evaluable: 'Evaluable DPEES'
+        rvoe_dependence: 'Dependencia RVOE'
+        rvoe_number: 'Número RVOE'
+        rvoe_in_process: 'RVOE en trámite'
+      evaluation_instrument:
+        nombre: 'Nombre'
+        descripcion: 'Descripción'
+      attachment:
+        name: 'Nombre'
+        attachment_type_id: 'Tipo de documento'
+        archive: 'Documento'
+        archive_content_type: 'Formato de documento'
+
+    errors:
+      template:
+        header:
+          one: "%{model} no pudo guardarse debido a 1 error"
+          other: "%{model} no pudo guardarse debido a %{count} errores"
+        body: "Revise que los siguientes campos sean válidos:"
+
+      messages:
+        taken: "ya ha sido tomado"
+        record_invalid: "La validación falló: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute} %{message}"
+
+      models:
+        evaluator_professional_experience:
+          attributes:
+            end_date:
+              invalid_date: "Las fechas son inválidas"
+              after: "La fecha de inicio debe ser menor a la fecha de finalización"
+        evaluator:
+          phones_very_few: "(debe ingresar al menos un teléfono)"
+          contacts_very_few: "(debe ingresar al menos un dato de contacto)"
+          evaluator_studies_very_few: "(debe ingresar al menos su último grado de estudios)"
+          evaluator_professional_experiences_very_few: "(debe ingresar al menos su empleo actual como experiencia profesional)"
+          evaluator_accrediting_agencies_very_few: "(debe pertenecer al menos a un organismo acreditador)"
+        
+  authlogic:
+    error_messages:
+      login_blank: "Ingresa tu nombre de usuario."
+      login_not_found: "Esta cuenta no existe. Ingresa otro nombre de usuario."
+      login_invalid: "debe contener únicamente letras, números y los siguientes simbolos: . - _ @"
+      consecutive_failed_logins_limit_exceeded: "Excedio el límite de intentos consecutivos fallidos, la cuenta será desactivada"
+      email_invalid: "no tiene el formato adecuado"
+      password_blank: "Ingresa la contraseña de tu cuenta."
+      password_invalid: "Ingresa la contraseña correctamente."
+      not_active: "Su cuenta está desactivada"
+      not_confirmed: "Su cuenta no está confirmada"
+      not_approved: "Su cuenta no está aprobada"
+      no_authentication_details: "Datos insuficientes para la autenticación."
+      general_credentials_error: "Combinación inválida para usuario/contraseña"
+    models:
+      user_session: "UserSession"
+    attributes:
+      user_session: 
+        login: "Usuario"
+        email: "Correo electrónico"
+        password: "Contraseña"
+        remember_me: "Recordarme"
+
+  will_paginate:
+    page_gap: Página
+    previous_label: Atrás
+    next_label: Siguiente
+
+  yes_word: "Sí"
+  no_word: "No"
+
+  comment_types:
+    fundamentacion: 'Fundamentación'
+    evidencia_documental: 'Evidencia documental'
+    justificacion: 'Justificación'
+    recomendacion: 'Recomendación'
+    calculo_porcentaje: 'Cálculo de porcentaje'

@@ -15,6 +15,7 @@ Cyberclock::Application.routes.draw do
   resources :rents
   resources :rules
 
+  post 'union_habtm/:first_class/:first_class_id/:second_class/:second_class_id/:type' => 'utils#manage_habtm'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

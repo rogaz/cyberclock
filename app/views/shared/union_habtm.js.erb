@@ -1,0 +1,9 @@
+var time = 500;
+$('#<%= params[:second_class].tableize %>-assigned').empty().append('<%= escape_javascript(render partial: "#{params[:first_class].tableize}/unions_habtm/#{params[:second_class].tableize}_assigned", locals: { params[:first_class].to_sym => @first_element }) %>');
+$('.assigned-list').find('#<%= params[:second_class] %>-<%= params[:second_class_id] %>').hide();
+$('.unassigned-list').find('#<%= params[:second_class] %>-<%= params[:second_class_id] %>').hide(time);
+setTimeout(function(){
+    $('#<%= params[:second_class].tableize %>-unassigned').empty().append('<%= escape_javascript(render partial: "#{params[:first_class].tableize}/unions_habtm/#{params[:second_class].tableize}_unassigned", locals: { params[:first_class].to_sym => @first_element }) %>');
+    $('.assigned-list').find('#<%= params[:second_class] %>-<%= params[:second_class_id] %>').show(time*2);
+}, time);
+

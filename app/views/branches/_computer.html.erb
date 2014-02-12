@@ -1,4 +1,4 @@
-<div id="object-js-<%= computer.class.to_s.tableize %>-<%= computer.id %>" class="col-md-4 col-sm-6 col-xs-12 object-js-crud object-js-<%= computer.class.to_s.tableize %>">
-  <h2><i class="fa fa-desktop"></i> <%= computer.name %></h2>
+<div id="object-js-<%= computer.class.to_s.tableize %>-<%= computer.id %>" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 object-js-crud object-js-<%= computer.class.to_s.tableize %>">
+  <h3><i class="fa fa-desktop"></i> <%= computer.name %></h3>
   <%= render partial: 'shared/options_record_js', locals: { class_name_tableize: computer.class.to_s.tableize, object_id: computer.id, owner_class: owner_class } %>
 </div>

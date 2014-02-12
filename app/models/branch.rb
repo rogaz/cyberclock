@@ -17,4 +17,16 @@ class Branch < ActiveRecord::Base
     self.admin.destroy if self.admin
   end
 
+  #TODO: Buscar la manera de hacer este método con un scope
+  def rules_unassigned
+    rules = self.rules
+    all_rules = self.company.rules.order(:description)
+    all_rules - rules
+  end
+
+  def promotions_unassigned
+    promotions = self.promotions
+    all_promotions = self.company.promotions.order(:description)
+    all_promotions - promotions
+  end
 end

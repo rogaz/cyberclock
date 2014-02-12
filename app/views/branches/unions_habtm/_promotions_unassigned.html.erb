@@ -1,0 +1,9 @@
+<% if branch.promotions_unassigned.any? %>
+    <p><kbd>Disponibles para asignar</kbd></p>
+    <% branch.promotions_unassigned.each do |promotion| %>
+        <div id="promotion-<%= promotion.id %>" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item promotion-item">
+          <i class="fa fa-exclamation"></i> <%= promotion.description %>
+          <i class="fa fa-plus-circle btn btn-success btn-xs add-item" title="Agregar" style="display: none" onclick="union_habtm(this, 'branch', <%= branch.id %>, 'promotion', <%= promotion.id %>, 'add')"></i>
+        </div>
+    <% end %>
+<% end %>
