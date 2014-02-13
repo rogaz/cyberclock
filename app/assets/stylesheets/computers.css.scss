@@ -1,3 +1,39 @@
 // Place all the styles related to the Computers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import 'variables';
+
+#admin-container{
+  text-align: center;
+
+  #counter-container{
+    margin-bottom: -20px;
+
+    #counter-time{
+      border: 0px;
+      margin: 0 auto;
+      max-width: 600px;
+
+      .countdown-row{
+        .countdown-section{
+          background-color: #333;
+          color: #EEE;
+          font-size: 1.2em;
+          line-height: 1.5;
+          margin: 10px 20px;
+          padding: 5px;
+          width: calc(32.5% - 50px);
+          @include vendorize('border-radius', 5px);
+          @include vendorize('box-shadow', 0px 2px 5px #333);
+
+        }
+      }
+    }
+  }
+}
+
+#rules-container{
+  margin-top: 60px;
+}
+

@@ -1,0 +1,30 @@
+<script>
+$(document).ready(function(){
+$('#counter-time').countdown();
+<% if @computer.last_rent %>
+    <% rent = @computer.last_rent %>
+    <% if rent.rent_type == 'definido' %>
+        <% sec = (rent.duration.hour.hours + rent.duration.min.minutes) - (Time.now - (rent.created_at.to_time)) %>
+        $('#counter-time').countdown('option', { until: <%= sec %> });
+
+    <% elsif rent.rent_type == 'indefinido' %>
+        <% server_date = Time.now %>
+        var server_date = new Date("<%= server_date.year %>", "<%= server_date.month - 1 %>", "<%= server_date.day %>");
+        server_date.setHours(<%= server_date.hour %>);
+        server_date.setMinutes(<%= server_date.min %>);
+        server_date.setSeconds(<%= server_date.sec %>);
+
+        var date = new Date();
+        var diff_sec = (server_date.getTime() - date.getTime())/1000;
+
+        date.setHours(<%= rent.created_at.to_time.hour %>);
+        date.setMinutes(<%= rent.created_at.to_time.min %>);
+        date.setSeconds(<%= rent.created_at.to_time.sec %>);
+        date.setSeconds(date.getSeconds() - diff_sec);
+
+        $('#counter-time').countdown('option', { since: date });
+    <% end %>
+
+<% end %>
+});
+</script>

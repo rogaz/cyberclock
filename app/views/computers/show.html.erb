@@ -1,15 +1,84 @@
+<%= content_for :asset_stylesheet do %>
+    <%= stylesheet_link_tag 'timeTo' %>
+    <%= stylesheet_link_tag 'jquery.countdown' %>
+<% end %>
+
+<%= content_for :asset_javascript do %>
+    <%= javascript_include_tag 'jquery.timeTo.min' %>
+    <%= javascript_include_tag 'jquery.plugin.min' %>
+    <%= javascript_include_tag 'jquery.countdown.min' %>
+    <%= javascript_include_tag 'jquery.countdown-es' %>
+    <script>
+        $(document).ready(function(){
+            $('#rent_rent_type').change(function(){
+                var val = $(this).val();
+
+                if (val == 'indefinido')
+                    $('#rent_duration').hide();
+                else if (val == 'definido')
+                    $('#rent_duration').show();
+            });
+        });
+    </script>
+
+
+<% end %>
+
+<div id="script-counter">
+  <%= render 'begin_counter' %>
+</div>
+
 <%= provide(:title, 'Detalles del equipo') %>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @computer.name %>
-</p>
+<div id="admin-container" class="jumbotron" >
+  <h2><%= @computer.name %></h2>
+  <h3><%= validate_if_nil(@computer, 'branch.name') %></h3>
 
-<p>
-  <strong>Branch:</strong>
-  <%= @computer.branch %>
-</p>
+  <%= form_for(Rent.new, format: :js, remote: true) do |f| %>
+
+    <span id="rent_duration"><%= f.time_select :duration, prompt: true %></span>
+
+    <%= f.select(:rent_type, [%w(Definido definido), %w(Indefinido indefinido)]) %>
+
+    <%= f.hidden_field :computer_id, value: @computer.id %>
+
+    <%= f.submit %>
+
+  <% end %>
+
+  <div id="counter-container">
+    <div id="counter-time" ></div>
+  </div>
+</div>
+
+<div id="rules-container" class="row">
+    <h3>Reglas</h3>
+    <% @computer.branch.rules.each do |rule| %>
+        <div class="rule col-md-4 col-xs-12">
+          <%= rule.description %>
+        </div>
+    <% end %>
+</div>
+
+<div id="promotion-container" class="row">
+    <h3>Promociones</h3>
+    <% @computer.branch.promotions.each do |promotion| %>
+        <div class="rule col-md-4 col-xs-12">
+          <%= promotion.description %>
+        </div>
+    <% end %>
+</div>
+
+<div id="products-container" class="row">
+    <h3>Productos</h3>
+    <% @computer.branch.products.each do |product| %>
+        <div class="rule col-md-4 col-xs-12">
+          <%= image_tag(product.picture.url(:thumb)) %>
+          <p><%= product.description %></p>
+        </div>
+    <% end %>
+</div>
 
 <%= link_to 'Edit', edit_computer_path(@computer) %> |
 <%= link_to 'Back', computers_path %>

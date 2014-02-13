@@ -28,8 +28,10 @@ class RentsController < ApplicationController
 
     respond_to do |format|
       if @rent.save
+        @computer = @rent.computer
         format.html { redirect_to @rent, notice: 'Rent was successfully created.' }
         format.json { render action: 'show', status: :created, location: @rent }
+        format.js
       else
         format.html { render action: 'new' }
         format.json { render json: @rent.errors, status: :unprocessable_entity }

@@ -5,6 +5,17 @@
   <%= stylesheet_link_tag    'application', "#{params[:controller]}", media: 'all' %>
   <!--%= stylesheet_link_tag    'application', "#{params[:controller]}", media: 'all', 'data-turbolinks-track' => false %-->
   <%= yield :asset_stylesheet %>
+
+  <%= javascript_include_tag 'application', "#{params[:controller]}", 'data-turbolinks-track' => true %>
+  <%= yield :asset_javascript %>
+  <script>
+      //Focus link in navbar
+      $(document).ready(function(){ $('.<%= params[:controller] %>-nav-bar').addClass('active'); });
+  </script>
+  <!--[if lt IE 9]>
+  <script src="/assets/respond.js"></script>
+  <![endif]-->
+
   <%= csrf_meta_tags %>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 </head>
@@ -94,14 +105,5 @@
 
 </div> <!-- /container -->
 
-<%= javascript_include_tag 'application', "#{params[:controller]}", 'data-turbolinks-track' => true %>
-<%= yield :asset_javascript %>
-<script>
-    //Focus link in navbar
-    $(document).ready(function(){ $('.<%= params[:controller] %>-nav-bar').addClass('active'); });
-</script>
-<!--[if lt IE 9]>
-  <script src="/assets/respond.js"></script>
-<![endif]-->
 </body>
 </html>

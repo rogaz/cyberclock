@@ -22,5 +22,7 @@ module Cyberclock
 
     config.i18n.default_locale = :es
 
+    config.assets.paths << "#{Rails.root}/lib/assets/*"
+
   end
 end
