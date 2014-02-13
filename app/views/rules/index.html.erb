@@ -1,28 +1,20 @@
 <%= provide(:title, 'Reglas') %>
-<h1>Listing rules</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div id="index-head">
+  <h1 id="title">Reglas</h1>
+  <%= link_to '<i class="fa fa-plus"></i> Nueva regla'.html_safe, new_rule_path, class: 'btn btn-success', id: 'new_company' %>
+</div>
 
   <tbody>
     <% @rules.each do |rule| %>
       <tr>
         <td><%= rule.description %></td>
-        <td><%= link_to 'Show', rule %></td>
-        <td><%= link_to 'Edit', edit_rule_path(rule) %></td>
-        <td><%= link_to 'Destroy', rule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostar', rule %></td>
+        <td><%= link_to 'Editar', edit_rule_path(rule) %></td>
+        <td><%= link_to 'Eliminar', rule, method: :delete, data: { confirm: '¿Esta seguro de eliminar este elemento?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Rule', new_rule_path %>
