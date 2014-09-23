@@ -4,7 +4,7 @@
         <div id="product-<%= product.id %>" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item product-item">
           <a href="<%= product_path(product) %>"><%= image_tag product.picture.url(:thumb), class: 'img-circle' %></a>
           <p><%=product.description %></p>
-          <i class="fa fa-plus-circle btn btn-success btn-xs add-item" title="Agregar" style="display: none" onclick="union_habtm(this, 'branch', <%= branch.id %>, 'product', <%= product.id %>, 'add')"></i>
+          <i class="fa fa-plus-circle btn btn-success btn-xs add-item" title="Agregar" onclick="union_habtm(this, 'branch', <%= branch.id %>, 'product', <%= product.id %>, 'add')"></i>
         </div>
     <% end %>
 <% end %>

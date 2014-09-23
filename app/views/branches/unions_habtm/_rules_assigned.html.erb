@@ -1,6 +1,6 @@
 <% branch.rules.order(:description).each do |rule| %>
     <div id="rule-<%= rule.id %>" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item rule-item">
       <i class="fa fa-exclamation"></i> <%= rule.description %>
-      <i class="fa fa-minus-square btn btn-danger btn-xs add-item" title="Eliminar" style="display: none" onclick="union_habtm(this, 'branch', <%= branch.id %>, 'rule', <%= rule.id %>, 'delete')"></i>
+      <i class="fa fa-minus-square btn btn-danger btn-xs add-item" title="Eliminar" onclick="union_habtm(this, 'branch', <%= branch.id %>, 'rule', <%= rule.id %>, 'delete')"></i>
     </div>
 <% end %>

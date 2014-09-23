@@ -3,7 +3,7 @@
     <% branch.rules_unassigned.each do |rule| %>
         <div id="rule-<%= rule.id %>" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 item rule-item">
           <i class="fa fa-exclamation"></i> <%= rule.description %>
-          <i class="fa fa-plus-circle btn btn-success btn-xs add-item" title="Agregar" style="display: none" onclick="union_habtm(this, 'branch', <%= branch.id %>, 'rule', <%= rule.id %>, 'add')"></i>
+          <i class="fa fa-plus-circle btn btn-success btn-xs add-item" title="Agregar" onclick="union_habtm(this, 'branch', <%= branch.id %>, 'rule', <%= rule.id %>, 'add')"></i>
         </div>
     <% end %>
 <% end %>
