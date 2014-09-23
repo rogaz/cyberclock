@@ -22,7 +22,7 @@ module Cyberclock
 
     config.i18n.default_locale = :es
 
-    config.assets.paths << "#{Rails.root}/lib/assets/*"
+    config.assets.paths << Rails.root.join('lib')
 
   end
 end
